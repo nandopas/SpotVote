@@ -1,0 +1,25 @@
+<div class="page-title">
+	<h1>Top Albums</h1>
+</div>
+
+<%= alert %>
+<div class="albums-container">
+<% @albums.each do |album| %>
+	<div class="album-card" id="">
+
+		<div class="album-image">
+			<%= image_tag(album.image) %>
+
+			<div class="album-card-info">
+				<strong><%= album.name %></strong>
+				<p><%= album.artist %></p>
+			</div>
+		</div>
+
+		<div class="album-card-footer">
+			<p>Score: <%= album.votes %></p>
+			<%= link_to 'Vote', like_album_path(album) %>
+		</div>
+	</div>
+<% end %>
+</div>

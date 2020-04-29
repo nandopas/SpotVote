@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpotVote</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  </head>
+
+  <body>
+    
+  
+      <nav>
+        <div class="mobile-nav">
+          <div class="logo">
+            <h4 class="active"><%= link_to 'SpotVote', root_path %></h4>
+          </div>
+          <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+
+        <ul class="nav-links hide-mobile" id="myLinks">
+          <li class="hide-desktop"><%= link_to 'Home', root_path %></li>
+
+          <% if false %>
+          <li><%= link_to 'Upload Fit', new_fit_path %></li>
+          <li><%= link_to 'Vote', fits_vote_path, :method => :post %></li>
+          <% end %>
+
+          <li class="nav-search">
+            <%= form_with(url: "/albums/search", local: true, method: "get") do %>
+              <%= label_tag(:album, "Album Search:") %>
+              <%= search_field_tag(:album) %>
+              <%= button_tag("Search") %>
+            <% end %>
+          </li>
+         
+
+        </ul>
+
+
+        <% if false %>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <% end %>
+
+      </nav>
+
+    
+
+    <div class="spacer"></div>
+
+      <p class="alert"><% alert %></p>
+      <%= yield %>
+
+    
+
+    <script>
+      const navSlide = () => {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+          nav.classList.toggle('nav-active');
+        });
+      }
+
+      navSlide();
+    </script>
+    
+
+  </body>
+
+</html>
