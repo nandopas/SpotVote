@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 	require 'rspotify'
 
-	RSpotify.authenticate("24fa1ac4db8b4a6f90c72057b7aa86f1", "5b3ec11a4865470294d9e8929c9796ee")
+	RSpotify.authenticate(ENV['SPOTIFY_KEY'], ENV['SPOTIFY_SECRET'])
 
 	def index
 		#load 100 albums, order by votes

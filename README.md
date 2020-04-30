@@ -1,24 +1,7 @@
-# README
+# SpotVote
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Vote on albums from Spotify
 
-Things you may want to cover:
+SpotVote uses spotify web api to search for albums and add to app database.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then go ahead and vote away on your favorite albums!

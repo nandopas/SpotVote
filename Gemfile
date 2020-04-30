@@ -7,6 +7,7 @@ gem 'rspotify'
 gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'rename'
+gem "figaro"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
