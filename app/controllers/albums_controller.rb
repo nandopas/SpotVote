@@ -31,6 +31,7 @@ class AlbumsController < ApplicationController
 	end
 
 	def create
+		#currently not using the create method, but ill keep in for future reference
 		@album = Album.new(album_params)
 		if @album.save
 			redirect_to root_path

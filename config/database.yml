@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: spot_vote_production
   username: spot_vote
-  password: <%= ENV['spot_vote_DATABASE_PASSWORD'] %>
+  password: ENV['DATABASE_PASSWORD']
