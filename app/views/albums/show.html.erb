@@ -1,29 +1,30 @@
 <div class="page-title">
-	<h1> Results for: <%= @parameter %></h1>
+	<h1><%= @album.name %></h1>
 </div>
 
-
 <div class="albums-container">
-<% @albums.each do |album| %>
 	<div class="album-card" id="">
 
 		<div class="album-image">
-			<%= image_tag(album.image) %>
+			<%= image_tag(@album.image) %>
 
 			<div class="album-card-info">
-				<strong><%= album.name %></strong>
-				<p><%= album.artist %></p>
+				<strong><%= @album.name %></strong>
+				<p><%= @album.artist %></p>
 			</div>
 		</div>
 
 		<div class="album-card-footer">
-			<p>Score: <%= album.cached_votes_total %></p>
+			<p>Score: <%= @album.cached_votes_total %></p>
 			<% if logged_in? %>
-				<%= link_to 'Vote', like_album_path(album) %>
+				<%= link_to 'Vote', like_album_path(@album) %>
 			<% else %>
 				<%= link_to 'Log In to Vote', login_path %>
 			<% end %>
 		</div>
 	</div>
-<% end %>
+
+	<div class="scroll">
+	<p>skdjfh;aljksdhfsdf.ksjdhfkasjdhf</p>
+	</div>
 </div>

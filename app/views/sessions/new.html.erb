@@ -1,0 +1,29 @@
+<div class="page-title">
+	<h1>Log In</h1>
+</div>
+
+<div class="container" style="display: flex; justify-content: center">
+
+<%= form_with(url: "/sessions", local: true, method: "post") do |form| %>
+  
+  <div class="field">
+    <%= form.label :username %><br>
+    <%= form.text_field :username, style: "width: 100%" %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= form.label :password %><br>
+    <%= form.password_field :password, style: "width: 100%" %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= form.submit class: "btn", value: "Log In", style: "width: 100%" %>
+  </div>
+  <br>
+<% end %>
+
+</div>

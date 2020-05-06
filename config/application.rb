@@ -1,7 +1,9 @@
+
 require_relative 'boot'
 
 require 'rails/all'
-
+require 'rspotify'
+#RSpotify::authenticate(ENV['SPOTIFY_KEY'], ENV['SPOTIFY_SECRET'])
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

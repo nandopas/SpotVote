@@ -18,6 +18,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 
 * {
@@ -52,7 +63,8 @@ nav {
   position: fixed;
   top: 0;
   z-index: 7;
-  padding: 5px;
+  padding: 0;
+
 }
 
 nav li {
@@ -61,21 +73,30 @@ nav li {
 
 nav li a {
   display: block;
+  padding: 8px;
+  transition: .3s;
 }
+
 nav li a:hover {
-  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(73,251,53,1);
+  border-radius: 5px;
+  color: rgba(73,251,53,1);
+  transform: scale(1.01, 1.01);
 }
 
 .nav-search {
   align-items: center;
 }
 
+
 .nav-links {
+  align-items: center;
   display: none;
   background-color: #212121;
   z-index: 8;
   transform: translateY(-200%);
-  transition: transform 0.5s ease-in;
+  transition: transform 1s ease-in;
+  
 }
 
 .hide-mobile {
@@ -87,6 +108,7 @@ nav li a:hover {
 }
 
 .nav-active {
+  
   transform: translateY(0%);
   display: block;
 }
@@ -95,10 +117,15 @@ nav li a:hover {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 5px;
+  padding: 8px;
 }
 
 
-input[type=search] {
+form.user {
+
+}
+
+input {
   width: 40%;
   background-color: #303030;
   border-radius: 5px;
@@ -107,13 +134,20 @@ input[type=search] {
   padding: 3px;
 }
 
-button {
+button, .btn {
   background-color: #77ABB7;
   border: none;
   padding: 3px;
   color: #303030;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(73,251,53,1), 0 6px 20px 0 rgba(73,251,53,1);
+  color: rgba(73,251,53,1);
+  transform: scale(1.1, 1.1);
 }
 
 .burger {
@@ -121,6 +155,7 @@ button {
   background-color: #000000;
   cursor: pointer; 
   z-index: 8;
+  padding: 8px;
 }
 .burger div {
 
@@ -173,6 +208,26 @@ img {
  
 }
 
+.scroll {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  width: 40%;
+  background-color: #303030;
+  margin: 10px;
+  padding: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.album-show-container {
+  display: flex;
+
+  left: 0;
+}
+
 .page-title {
     display: flex;
     justify-content: center;
@@ -201,7 +256,15 @@ h1 {
   margin: 10px;
   position: relative;
   height: 60vw;
+  transition: .3s;
 
+}
+
+.album-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(73,251,53,1), 0 6px 20px 0 rgba(73,251,53,1);
+  transform: scale(1.1, 1.1);
+  color: rgba(73,251,53,1);
+  z-index: 20;
 }
 
 .album-image {
@@ -231,10 +294,14 @@ h1 {
   text-decoration: none;
   display: block;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: .3s;
 }
 
-.album-card a:hover {
+.album-card-footer a:hover {
   background-color: #424242;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(73,251,53,1);
+  transform: scale(1.1, 1.1);
+  color: rgba(73,251,53,1);
 }
 
 .album-card p {
@@ -247,7 +314,7 @@ h1 {
 
 
 .albums-container {
-  justify-content: space-around;
+  justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
 }

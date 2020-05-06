@@ -1,0 +1,54 @@
+<div class="page-title">
+	<h1>Sign Up!</h1>
+</div>
+
+<div class="container" style="display: flex; justify-content: center">
+
+<%= form_with(model: @user, local: true, class: "user") do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> you gotta fix some stuff:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+
+  <div class="field">
+    <%= form.label :email %><br>
+    <%= form.text_field :email, style: "width: 100%" %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= form.label :username %><br>
+    <%= form.text_field :username, style: "width: 100%" %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= form.label :password %><br>
+    <%= form.password_field :password, style: "width: 100%" %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation, style: "width: 100%" %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= form.submit class: "btn", value: "Sign Up!", style: "width: 100%" %>
+  </div>
+  <br>
+<% end %>
+</div>

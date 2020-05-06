@@ -1,8 +1,10 @@
 <div class="page-title">
-	<h1>Top Albums</h1>
+	<h1><%= @user.username %> Page</h1>
 </div>
+<br>
+<h4>Liked Albums</h4>
+<br>
 
-<%= alert %>
 <div class="albums-container">
 <% @albums.each do |album| %>
 	

@@ -5,7 +5,11 @@ class AlbumsController < ApplicationController
 
 	def index
 		#load 100 albums, order by votes
-		@albums = Album.limit(100).order(votes: :desc)
+		@albums = Album.limit(100).order(cached_votes_total: :desc)
+	end
+
+	def show
+		@album = Album.find(params[:id])
 	end
 
 	def search
@@ -41,12 +45,21 @@ class AlbumsController < ApplicationController
 	end
 
 	def vote
+
+		#check if user logged in
+		if logged_in?
+			@album = Album.find(params[:id])
+			@album.upvote_by current_user
+			redirect_back(fallback_location: root_path)
+		else
+			redirect_back(fallback_location: root_path)
+		end
 		#get album by id
-		@album = Album.find(params[:id])
+		#@album = Album.find(params[:id])
 		#increment votes
-		@album.increment!(:votes)
+		#@album.increment!(:votes)
 		#redirect
-		redirect_back(fallback_location: root_path)
+		#redirect_back(fallback_location: root_path)
 	end
 
 	private
