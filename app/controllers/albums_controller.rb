@@ -14,17 +14,24 @@ class AlbumsController < ApplicationController
 
 	def search
 		#display alert if query is empty
-		if params[:album].blank?  
+		if params[:q].blank?  
     		redirect_to(root_path, alert: "No input!")  
   		else 
   			#save parameter as instance variable so i dont have to keep typing params[:album]
-			@parameter = params[:album]
+			@parameter = params[:q]
 			#search spotifies Album API
 			@albums = RSpotify::Album.search(@parameter)
 			#need to add some caching here to reduce searches and attempts to make database entries
 			#for every result add to db. db will ignore if the album exists
 			@albums.each do |album|
-				Album.create(name: album.name, artist: album.artists.first.name, image: album.images.first['url'], votes: 0)
+				Album.create(name: album.name, 
+							 artist: album.artists.first.name, 
+							 image: album.images.first['url'], 
+							 votes: 0,
+							 album_type: album.album_type,
+							 genres: album.genres,
+							 release_date: album.release_date,
+							 total_tracks: album.total_tracks)
 			end
 			#reset the albums variable to search the db with fresh queries
 			@albums = nil
@@ -66,6 +73,6 @@ class AlbumsController < ApplicationController
 		#not using this anymore, but ill keep it handy
 		private
 		  def album_params
-		    params.require(:album).permit(:name, :artist, :image, :votes)
+		    params.require(:album).permit(:name, :artist, :image, :votes, :album_type, :genres, :release_date, :total_tracks)
 		  end
 end

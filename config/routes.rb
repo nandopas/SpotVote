@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #root 'albums#index'
   root 'home#index'
   get 'home/index'
+
+  #spotify authentication
   get '/auth/spotify/callback', to: 'users#spotify'
   
 
@@ -30,4 +32,5 @@ Rails.application.routes.draw do
   #post 'login', to: 'sessions#create', as: 'session_create'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
+
 end

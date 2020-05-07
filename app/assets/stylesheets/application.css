@@ -208,10 +208,16 @@ img {
  
 }
 
+.form-container {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
 .scroll {
   display: flex;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 40%;
   background-color: #303030;
   margin: 10px;
@@ -220,6 +226,10 @@ img {
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
+}
+
+.scroll p {
+  font-size: 10px;
 }
 
 .album-show-container {
@@ -570,6 +580,24 @@ input[type=submit]:hover {
     position: relative;
     height: 26vw;
 
+  }
+
+  .scroll {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    width: 20%;
+    background-color: #303030;
+    margin: 10px;
+    padding: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .scroll p {
+    font-size: 25px;
   }
 }
 

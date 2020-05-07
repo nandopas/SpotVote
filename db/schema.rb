@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_214318) do
+ActiveRecord::Schema.define(version: 2020_05_07_001416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 2020_05_06_214318) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
+    t.text "genres", default: [], array: true
+    t.text "release_date"
+    t.integer "total_tracks"
+    t.string "album_type"
     t.index ["name", "artist"], name: "index_albums_on_name_and_artist", unique: true
   end
 

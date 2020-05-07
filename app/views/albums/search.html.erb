@@ -6,7 +6,8 @@
 <div class="albums-container">
 <% @albums.each do |album| %>
 	<div class="album-card" id="">
-
+		
+		<%= link_to album_path(album) do %>
 		<div class="album-image">
 			<%= image_tag(album.image) %>
 
@@ -15,6 +16,7 @@
 				<p><%= album.artist %></p>
 			</div>
 		</div>
+		<% end %>
 
 		<div class="album-card-footer">
 			<p>Score: <%= album.cached_votes_total %></p>

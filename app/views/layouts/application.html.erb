@@ -49,8 +49,8 @@
 
           <li class="nav-search">
             <%= form_with(url: "./search", local: true, method: "get", class: ".search") do %>
-              <%= label_tag(:album, "Album Search:") %>
-              <%= search_field_tag(:album) %>
+              <%= label_tag(:q, "Album Search:") %>
+              <%= search_field_tag(:q) %>
               <%= button_tag("Search") %>
             <% end %>
           </li>

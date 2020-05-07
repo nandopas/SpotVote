@@ -27,6 +27,10 @@ class UsersController < ApplicationController
   	end
   end
 
+  def spotify
+    spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+  end
+
   private
   	def user_params
   		params.require(:user).permit(:email, :username, :password, :password_confirmation, :admin)
