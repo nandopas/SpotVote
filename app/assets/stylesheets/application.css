@@ -173,7 +173,7 @@ button:hover, .btn:hover {
   justify-content: space-between;
   min-height: 20px;
 }
-nav a {
+nav a, a {
   text-decoration: none;
 }
 
